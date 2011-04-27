@@ -210,6 +210,7 @@ sub log_it {
 sub ln_sf
 {
     my($srcdir, $glob, $dstdir) = @_;
+    mkdir $dstdir unless (-d $dstdir);
     for my $hook ( glob("$srcdir/$glob") ) {
         $hook =~ s/$srcdir\///;
         unlink                   "$dstdir/$hook";
