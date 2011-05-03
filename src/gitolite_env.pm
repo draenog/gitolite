@@ -46,6 +46,9 @@ use gitolite;
 
 # think of it OS-supported memo-ization :-)
 sub setup_environment {
+    foreach my $variable (keys %ENV) {
+        delete $ENV{$variable} if $variable=~m/^GIT_/;
+    }
     $ENV{GL_ADMINDIR} = $GL_ADMINDIR;
     $ENV{GL_LOG} = get_logfilename($GL_LOGT);
     $ENV{PATH} = "$GIT_PATH:$ENV{PATH}" if $GIT_PATH;
