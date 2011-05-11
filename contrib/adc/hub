@@ -441,7 +441,7 @@ sub temp_clone {
 
     # make the clone
     wrap_chdir("$ENV{GL_REPO_BASE_ABS}");
-    system("git clone --mirror -l $repo.git $tempdir.git >/dev/null 2>&1");
+    system("git clone --mirror $repo.git $tempdir.git >/dev/null 2>&1");
 
     # go to the clone and delete refs he's not allowed to read
     wrap_chdir("$ENV{GL_REPO_BASE_ABS}");
