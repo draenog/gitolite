@@ -168,6 +168,7 @@ gl-install -q
         repo    testing
                 RW+     =   @all
     " | cut -c9- > $GL_ADMINDIR/conf/gitolite.conf
+   RERUN_GL_INSTALL = 1
 }
 [ -n "$pubkey_file" ] && cp $pubkey_file $GL_ADMINDIR/keydir
 
@@ -186,7 +187,7 @@ gl-compile-conf -q
 
 # now that the admin repo is created, you have to set the hooks properly; best
 # do it by running install again
-gl-install -q
+[ "$RERUN_GL_INSTALL" = 1 ] && gl-install -q
 
 # ----------------------------------------------------------------------
 #   lint check on ssh keys
