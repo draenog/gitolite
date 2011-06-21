@@ -46,6 +46,7 @@ for my $repo (`find . -type d -name "*.git" -prune`) {
     ln_sf( "$GL_ADMINDIR/hooks/common", "*", "$repo/hooks" );
     # propagate package hooks, overriding user hooks
     ln_sf( "$GL_PACKAGE_HOOKS/common", "*", "$repo/hooks" );
+    foreach(glob "$repo/hooks/*") { -l && ! -e && unlink};
     chmod 0755, "$repo/hooks/update";
 }
 
