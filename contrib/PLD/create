@@ -10,7 +10,6 @@ die "Usage: create <repo>\n" unless ($#ARGV == 0);
 
 my $repo = shift @ARGV;
 $repo=~s/.git$//;
-die "$repo contains forbidden characters" if $repo=~/[^a-zA-Z0-9_-]/;
 $repo = "packages/$repo" ;
 die "$repo ends with a slash; I don't like that\n" if $repo =~ /\/$/;
 die "$repo has two consecutive periods; I don't like that\n" if $repo =~ /\.\./;
