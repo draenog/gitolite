@@ -22,7 +22,7 @@ runlocal git clone u1:aa u1aa
 expect "Cloning into 'u1aa'..."
 expect "warning: You appear to have cloned an empty repository"
 runlocal ls -ald --time-style=long-iso u1aa
-expect "drwxr-xr-x 3 $USER $USER 4096 201.-..-.. ..:.. u1aa"
+expect "drwxr-xr-x 3 $USER `id -gn` 4096 201.-..-.. ..:.. u1aa"
 
 # ----------
 name "basic clone deny"

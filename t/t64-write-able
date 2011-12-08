@@ -61,7 +61,7 @@ do
     expect "^second line"
     expect "/home/$USER"
     runremote ls -al .gitolite.down
-    expect "^.rw------- 1 $USER $USER .. ... .. ..:.. .gitolite.down"
+    expect "^.rw------- 1 $USER `id -gn` .. ... .. ..:.. .gitolite.down"
 
     name "u1 push foo fail"
     cd ~/td/foo
@@ -109,7 +109,7 @@ do
     expect "foo down"
     expect "$TEST_BASE/foo.git"
     runremote ls -al $TEST_BASE/foo.git/.gitolite.down
-    expect ".rw------- 1 $USER $USER .* ..:.. $TEST_BASE/foo.git/.gitolite.down"
+    expect ".rw------- 1 $USER `id -gn` .* ..:.. $TEST_BASE/foo.git/.gitolite.down"
 
     name "u1 push foo fail"
     cd ~/td/foo
@@ -137,7 +137,7 @@ do
     expect "bar/u2/r1 down"
     expect "$TEST_BASE/bar/u2/r1.git"
     runremote ls -al $TEST_BASE/bar/u2/r1.git/.gitolite.down
-    expect ".rw------- 1 $USER $USER .. ... .. ..:.. $TEST_BASE/bar/u2/r1.git/.gitolite.down"
+    expect ".rw------- 1 $USER `id -gn` .. ... .. ..:.. $TEST_BASE/bar/u2/r1.git/.gitolite.down"
 
     name "u1 push foo"
     cd ~/td/foo
