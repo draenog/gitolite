@@ -59,7 +59,7 @@ do
     expect "disabling following locations with message:"
     expect "first line"
     expect "^second line"
-    expect "/home/$USER"
+    expect "$HOME"
     runremote ls -al .gitolite.down
     expect "^.rw------- 1 $USER `id -gn` .. ... .. ..:.. .gitolite.down"
 
@@ -85,7 +85,7 @@ do
     runlocal ssh gitolite able en
     expect "give me '@all' or some reponame"
     runlocal ssh gitolite able en @all
-    expect "removed ./home/$USER/.gitolite.down."
+    expect "removed .$HOME/.gitolite.down."
     runremote ls -al .gitolite.down
     expect "ls: cannot access .gitolite.down: No such file or directory"
 
